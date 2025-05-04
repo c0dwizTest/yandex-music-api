@@ -3,7 +3,11 @@ import keyword
 import logging
 from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Sequence, Tuple, Union, cast
 
-from typing_extensions import Self, TypeGuard
+try:
+    from typing import Self, TypeGuard  # Python 3.11+
+except ImportError:
+    Self = None
+    TypeGuard = None
 
 from yandex_music.utils import model
 
