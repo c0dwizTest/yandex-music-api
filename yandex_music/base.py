@@ -8,7 +8,7 @@ from typing_extensions import Self, TypeGuard
 from yandex_music.utils import model
 
 if TYPE_CHECKING:
-    from yandex_music import Client, ClientAsync
+    from yandex_music import Client
 
 ujson: bool = False
 try:
@@ -25,7 +25,7 @@ new_issue_by_template_url = 'https://bit.ly/3dsFxyH'
 
 
 JSONType = Union[Dict[str, 'JSONType'], Sequence['JSONType'], str, int, float, bool, None]
-ClientType = Union['Client', 'ClientAsync']
+ClientType = Union['Client']
 ModelFieldType = Union[
     Dict[str, 'ModelFieldType'], Sequence['ModelFieldType'], 'YandexMusicModel', str, int, float, bool, None
 ]
@@ -84,20 +84,6 @@ class YandexMusicModel(YandexMusicObject):
         from yandex_music import Client
 
         return isinstance(client, Client)
-
-    @staticmethod
-    def valid_async_client(client: Optional['ClientType']) -> TypeGuard['ClientAsync']:
-        """Проверка что клиент передан и является асинхронным.
-
-        Args:
-            client (:obj:`Optional['ClientType']`): Клиент для проверки.
-
-        Returns:
-            :obj:`bool`: Асинхронный ли клиент.
-        """
-        from yandex_music import ClientAsync
-
-        return isinstance(client, ClientAsync)
 
     @staticmethod
     def is_array_model_data(data: JSONType) -> TypeGuard[List[Dict[str, JSONType]]]:
