@@ -154,7 +154,6 @@ __all__ = [
     'JSONType',
     'MapTypeToDeJson',
     'Client',
-    'ClientAsync',
     'Account',
     'PassportPhone',
     'InvocationInfo',
