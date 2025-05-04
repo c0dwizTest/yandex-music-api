@@ -141,7 +141,7 @@ from .invocation_info import InvocationInfo
 from .track_short import TrackShort
 from .icon import Icon
 from .client import Client
-from .client_async import ClientAsync
+#from .client_async import ClientAsync
 
 
 __all__ = [
